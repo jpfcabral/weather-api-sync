@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+  weather-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - 8000:8000
+    environment:
+      - OPEN_WEATHER_HOST=https://api.openweathermap.org/data/2.5
+      - DB_HOST=mongodb://database:27017/
+      - DB_NAME=test-db
+    env_file:
+      - .env
