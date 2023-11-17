@@ -22,3 +22,17 @@ class TestWeatherView:
 
         with pytest.raises(HTTPException) as _:
             weather.get_weather_info(lat=45.6, lon=35.9)
+
+    @patch.object(WeatherService, "get_history")
+    def test_get_requests_history(self, get_history_mock: MagicMock):
+
+        weather.get_requests_history(items_per_page=10, page_nb=5)
+
+        get_history_mock.assert_called_with(items_per_page=10, page_nb=5)
+
+    @patch.object(WeatherService, "get_history")
+    def test_get_requests_history_http_error(self, get_history_mock: MagicMock):
+        get_history_mock.side_effect = Exception()
+
+        with pytest.raises(Exception) as _:
+            weather.get_requests_history(items_per_page=10, page_nb=5)

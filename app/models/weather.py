@@ -1,13 +1,4 @@
 import mongoengine as me
-from pydantic import BaseModel
-
-
-class WeatherInfoResponse(BaseModel):
-    """"""
-
-
-class WeatherInfoModel(BaseModel):
-    """"""
 
 
 class WeatherInfoDB(me.Document):

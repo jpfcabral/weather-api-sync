@@ -28,5 +28,15 @@ class WeatherService:
 
         return weather_info
 
-    def get_history(self) -> dict:
-        """"""
+    def get_history(self, items_per_page: int, page_nb: int) -> list[dict]:
+        """
+        Gets search history
+
+        Args:
+            items_per_page: int = Number of documents por request
+            offset: int = Page to request
+        """
+
+        return self.weather_repository.read_all_request_info(
+            items_per_page=items_per_page, page_nb=page_nb
+        )
