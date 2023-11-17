@@ -14,3 +14,8 @@ services:
       - DB_NAME=test-db
     env_file:
       - .env
+
+  database:
+    image: mongo:latest
+    ports:
+      - 27017:27017

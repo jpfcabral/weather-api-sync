@@ -22,4 +22,4 @@ python_version = "3.9"
 
 [scripts]
 server = "uvicorn app.main:app --reload"
-unittests = "pytest -s -vv --capture=no --log-cli-level=INFO --failed-first -x --cov-report term-missing --cov=. tests"
+unittests = "pytest -s -vv --capture=no --log-cli-level=INFO --failed-first -x --cov-report term-missing --cov=./app"

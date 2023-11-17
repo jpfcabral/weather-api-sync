@@ -24,6 +24,7 @@ class WeatherService:
         """
 
         weather_info = self.open_weather_api.get_5_day_weather_forecast(lat=lat, lon=lon)
+        self.weather_repository.insert(lat=lat, lon=lon)
 
         return weather_info
 

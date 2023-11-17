@@ -6,7 +6,7 @@ from requests import HTTPError
 
 from app.services.weather import WeatherService
 
-router = APIRouter(prefix="/weather")
+router = APIRouter(prefix="/weather", tags=["Weather"])
 
 
 @router.get(path="/")

@@ -1,6 +1,3 @@
-from datetime import datetime
-from typing import Optional
-
 import mongoengine as me
 from pydantic import BaseModel
 
@@ -13,7 +10,9 @@ class WeatherInfoModel(BaseModel):
     """"""
 
 
-class WeatherData(me.EmbeddedDocument):
-    city_id = me.IntField()
-    temp = me.DecimalField()
-    humidity = me.DecimalField()
+class WeatherInfoDB(me.Document):
+    """Database Interface"""
+
+    lat = me.DecimalField()
+    lon = me.DecimalField()
+    request_datetime = me.DateTimeField()
