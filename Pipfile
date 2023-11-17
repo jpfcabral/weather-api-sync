@@ -15,9 +15,11 @@ loguru = "*"
 [dev-packages]
 pre-commit = "*"
 pytest = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.9"
 
 [scripts]
 server = "uvicorn app.main:app --reload"
+unittests = "pytest -s -vv --capture=no --log-cli-level=INFO --failed-first -x --cov-report term-missing --cov=. tests"

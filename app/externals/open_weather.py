@@ -14,7 +14,7 @@ class OpenWeatherExternal:
         self.host = host
         self.secret_key = secret_key
 
-    async def get_5_day_weather_forecast(
+    def get_5_day_weather_forecast(
         self,
         lat: float,
         lon: float,

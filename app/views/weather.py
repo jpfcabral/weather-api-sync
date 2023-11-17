@@ -10,7 +10,7 @@ router = APIRouter(prefix="/weather")
 
 
 @router.get(path="/")
-async def get_weather_info(lat: float = 44.35, lon: float = 10.99) -> Response:
+def get_weather_info(lat: float = 44.35, lon: float = 10.99) -> Response:
     """
     Gets weather information up to 5 days
 
@@ -25,7 +25,7 @@ async def get_weather_info(lat: float = 44.35, lon: float = 10.99) -> Response:
     try:
         service = WeatherService()
 
-        return await service.get_weather_info(lat=lat, lon=lon)
+        return service.get_weather_info(lat=lat, lon=lon)
     except HTTPError as exc:
         logger.warning(f"Failure to get weather info: {exc}")
         detail = {

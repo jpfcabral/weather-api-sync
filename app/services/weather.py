@@ -10,7 +10,7 @@ class WeatherService:
         self.weather_repository = weather_repository
         self.open_weather_api = open_weather_api
 
-    async def get_weather_info(self, lat: float, lon: float) -> dict:
+    def get_weather_info(self, lat: float, lon: float) -> dict:
         """
         Gets weather information up to 5 days
 
@@ -23,7 +23,7 @@ class WeatherService:
             Reponse with weather information
         """
 
-        weather_info = await self.open_weather_api.get_5_day_weather_forecast(lat=lat, lon=lon)
+        weather_info = self.open_weather_api.get_5_day_weather_forecast(lat=lat, lon=lon)
 
         return weather_info
 
